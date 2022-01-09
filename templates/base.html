@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Movie Site</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+<div class="blur"></div>
+<div class="container">
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+        
+        <h1 id="error-message">{{message}}</h1>
+        {% endfor %}
+    {% endwith %}
+    
+    <div class="search-box">
+        <header>Find information about any movie you want!</header>
+        <form method="POST" class="search-container">
+            <input id="input-movie-title" name="input-movie-title" type="text" placeholder="Title...">
+            <button type="submit">
+                <img src="{{url_for('static',filename='svg/icons8-search.svg')}}" alt="">
+            </button>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

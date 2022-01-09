@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='gallery.css')}}">
+</head>
+<body>
+    
+    <header>
+        <div class="search-box">
+            <form method="POST" class="search-container">
+                <input id="input-movie-title" name="input-movie-title" type="text" placeholder="Title...">
+                <button type="submit">
+                    <img src="{{url_for('static',filename='svg/icons8-search.svg')}}" alt="">
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <section id="presentation">
+        <div class="container">
+            <img src="{{presentation['Poster']}}">
+            <div>
+                <h1 id="title">{{presentation['Title']}}</h1>
+                <p id="plot">{{presentation['Plot']}}</p>
+                <p id="extra-information">{{presentation['Runtime']}}, {{presentation['Genre']}}</p>
+                <a target="__blank" href="{{url_for('showMovie',movieID=presentation['imdbID'])}}" id="link">More information</a>
+            </div>
+        </div>
+    </section>
+    <section id="gallery">
+        {% for movie in movies %}
+        <div class="poster">
+            <img src="{{movie['Poster']}}">
+            <div class="dark-frame">
+                <h1>{{movie['Title']}}</h1>
+                <h2>{{movie['Year']}}</h2>
+                <a target="__blank" href="{{url_for('showMovie',movieID=movie['imdbID'])}}">Ver mas...</a>
+            </div>       
+        </div>
+        {% endfor %}
+        
+    </section>
+    <div class="pages">
+        <ul>
+            {% for i in range(num_of_pages) %}
+            <li><a href="{{url_for('gallery',keyword=keyword,page=i+1)}}">{{i+1}}</a></li>
+            {% endfor %}
+            <li><a href="">1</a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

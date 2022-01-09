@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{movie['Title']}}</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='movie.css')}}">
+</head>
+<body>
+    <header>
+        <div class="search-box">
+            <form  method="POST" class="search-container">
+                <input id="input-movie-title" name="input-movie-title" type="text" placeholder="Title...">
+                <button type="submit">
+                    <img src="{{url_for('static',filename='svg/icons8-search.svg')}}" alt="">
+                </button>
+            </form>
+        </div>
+    </header>
+    <section id="presentation">
+        <div class="container">
+            <img src="{{movie['Poster']}}">
+            <div>
+                <h1 id="title">{{movie['Title']}} - {{movie['Year']}}
+                </h1>
+                <p id="plot">{{movie['Plot']}}</p>
+                <div class="info-box" >
+                    Director:
+                    {% for director in movie['Director'] %}
+                    {%if not loop.last%}
+                    <a href="https://es.wikipedia.org/wiki/{{director}}">{{director}}</a>,
+                    {% else %}
+                    <a href="https://es.wikipedia.org/wiki/{{director}}">{{director}}</a>
+                    {% endif %}
+                    {% endfor %}                    
+                </div>
+                <div class="info-box" id="actors">
+                    Actor:
+                    {% for actor in movie['Actors'] %}
+                    {% if not loop.last %}
+                    <a href="https://es.wikipedia.org/wiki/{{actor}}">{{actor}}</a>,
+                    {% else %}
+                    <a href="https://es.wikipedia.org/wiki/{{actor}}">{{actor}}</a>
+                    {% endif %}
+                    {% endfor %}                    
+                </div>
+                <div class="info-box" id="writers">
+                    Writer:
+                    {% for writer in movie['Writer'] %}
+                    {% if not loop.last %}
+                    <a href="https://es.wikipedia.org/wiki/{{writer}}">{{writer}}</a>,
+                    {% else %}
+                    <a href="https://es.wikipedia.org/wiki/{{writer}}">{{writer}}</a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="more-information">
+        <article id='article-container'>
+            <h1 id='article-header'>Details</h1>
+            <ul id="article-list">
+                <li class="article-item">
+                    <span>  Genre: {{movie['Genre']}} </span>
+                </li>
+                <li class="article-item">
+                    <span>  Release: {{movie['Released']}} </span>
+                </li>
+                <li class="article-item">
+                    <span>  Duration: {{movie['Runtime']}} </span>
+                </li>
+                <li class="article-item">
+                    <span>  DVD: {{movie['DVD']}} </span>
+                </li>
+                <li class="article-item">
+                    <span>  Box Office: {{movie['BoxOffice']}} </span>
+                </li>
+                <li class="article-item">
+                    <span>  Awards: {{movie['Awards']}} </span>
+                </li>
+            </ul>   
+        </article>
+        
+        
+        <article id='article-container'>
+            <h1 id='article-header'>Ratings</h1>
+            <ul id="article-list">
+                {% for rating in movie['Ratings'] %}
+                <li class="article-item">
+                    <span> {{rating['Source']}}: {{rating['Value']}}  </span>
+                </li>
+                {% endfor %}
+            </ul>   
+        </article>
+        
+        
+    </section>
+    
+</body>
+</html>

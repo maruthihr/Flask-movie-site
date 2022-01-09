@@ -1,0 +1,135 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: sans-serif;
+    color: white;
+    letter-spacing: 1.2px;
+    line-height: 28px;
+}
+body{
+    background-color: rgb(15, 13, 13);
+}
+header{
+    padding: 1.6rem 1rem;
+    background-color:rgb(25, 22, 27) ;
+}
+.search-container{
+    display: flex;
+}
+.search-container input,button{
+    border: none;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    padding: 1rem 2rem;
+    box-shadow: 0px 0px 3px white;
+}
+
+.search-container button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+.search-container button img{
+    width: 18px;
+}
+.search-container input{
+    font-size: 1.8rem;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    
+}
+
+#presentation{
+    padding: 4rem;
+    background-image: url('img/pexels-pavel-danilyuk-7234394.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container{
+    background-color: rgb(22, 21, 27);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,auto));
+    padding: 2rem;
+    justify-content: center;
+    border-radius: 0.4rem;
+    box-sizing: border-box;
+    width: 60%;
+    margin: 0 auto;
+}
+.container div{
+    margin: 1rem 1rem;
+}
+.container div p{
+    font-size: 1.2rem;
+}
+.container div a{
+    font-size: 1.4rem;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+}
+.container div a:hover{
+    text-decoration: underline;
+}
+.container div h1{
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: rgb(180, 179, 182);
+}
+
+.container img{
+    margin: 1rem auto;
+    width: 250px;
+}
+
+.container .info-box{
+    margin: 2rem 0;
+    background-color: rgb(13, 12, 15);
+    padding: 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.4rem;
+}
+
+
+.articles{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,auto));
+    justify-items: center;
+}
+#article-container{
+    margin: 2rem 1rem 2rem 1rem;
+}
+#article-header{
+    font-size: 3.2rem;
+    padding: 1rem 0;
+    border-bottom: 2px solid #aaa;
+}
+#article-list{
+    list-style-type: none;
+    margin: 1rem 0;
+}
+.article-item{
+    margin: 1rem 0;
+}
+.article-item span{
+    font-size: 1.6rem;
+    border-bottom: 0.5px solid #aaaa;
+    padding: 0.5rem 0;
+}
+
+@media (max-width:900px){
+    .container{
+        width:100%;
+    }
+}
