@@ -6,6 +6,12 @@ you can get your own at
 
 https://www.omdbapi.com/
 
+
+First install all the dependecies
+using
+
+pip3 install -r requirements.txt (or just pip)
+
 Create a .env file
 insert
 apikey = [apikey]
